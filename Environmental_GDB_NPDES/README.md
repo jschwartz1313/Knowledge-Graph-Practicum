@@ -1,12 +1,5 @@
 
-# Environmental Module (FileGDB for **Impaired Waters** and **NPDES**) — North Carolina Exposome KG
-
-This module is a **drop‑in environmental pipeline** that explicitly supports **File Geodatabase (.gdb)** inputs for **both**:
-
-- **NC DEQ Impaired Waters** (polyline) → county‑level impaired stream miles
-- **NC DEQ NPDES Permits** (point) → **Active** permits count per county
-
-It also processes EJScreen (block‑group) to county‑level exposures and NCEI gridded normals to county zonal means, and finally emits an RDF (SOSA + PROV‑O) aligned to your KG.
+# Environmental Module — North Carolina Exposome KG
 
 ## Raw inputs expected
 Place these in `Environmental_GDB_NPDES/data/raw/`:
