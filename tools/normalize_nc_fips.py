@@ -12,6 +12,8 @@ The script:
 - Overwrites the CSV with normalized FIPS stored in a 'fips' column (lowercase)
 """
 
+# Run in terminal: python tools/normalize_nc_fips.py --folder Environmental_GDB_NPDES/data/processed
+
 import argparse
 import os
 from pathlib import Path

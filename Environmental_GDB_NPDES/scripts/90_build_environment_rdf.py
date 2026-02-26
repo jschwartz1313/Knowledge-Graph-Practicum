@@ -11,12 +11,20 @@ Merge all environmental indicators and emit RDF (SOSA + PROV-O).
 
 PROC = Path('Environmental_GDB_NPDES/data/processed'); PROC.mkdir(parents=True, exist_ok=True)
 
-ejs = pd.read_csv(PROC / 'ejscreen_county.csv', dtype={'county_fips':str}).rename(columns={'county_fips':'fips'})
+ejs = pd.read_csv(PROC / 'ejscreen_county.csv', dtype={'fips':str})
 imp = pd.read_csv(PROC / 'impaired_streams_by_county.csv', dtype={'fips':str})
 npd = pd.read_csv(PROC / 'npdes_active_by_county.csv', dtype={'fips':str})
 nrm = pd.read_csv(PROC / 'ncei_normals_by_county.csv', dtype={'fips':str})
 
+
+
+print("LEFT dtypes:\n", imp.dtypes)      # replace left_df with your actual left DataFrame variable
+print("RIGHT dtypes:\n", npd.dtypes)    # replace right_df with your actual right DataFrame variable
+print("SAMPLE FIPS LEFT/RIGHT:", imp["fips"].head(3).tolist(), npd["fips"].head(3).tolist())
+
+
 df = ejs.merge(imp, on='fips', how='left').merge(npd, on='fips', how='left').merge(nrm, on='fips', how='left')
+
 
 df['county'] = None
 # Use EJScreen year as label
@@ -82,7 +90,7 @@ print('Wrote', (PROC / 'county_environment_2024.ttl').as_posix())
 # PATCH to make it compatible with SPARQL_EXAMPLES in 91_sparql_examples.py; add schema.org properties and QB dataset/indicator links
 
 # ALSO add the project's QB + schema.org model so SPARQL_EXAMPLES work
-g.add((obs, QB.Observation))                               # qb:Observation
+g.add((obs, RDF.type, QB.Observation))                     # qb:Observation
 g.add((obs, QB.dataSet, BASE['nc_exposome_dataset']))      # link to dataset
 g.add((obs, SCHEMA.location, county))                      # schema:location county
 g.add((obs, BASE['measuredIndicator'], ind))               # ex:measuredIndicator indicator
