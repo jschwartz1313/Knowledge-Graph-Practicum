@@ -1,5 +1,6 @@
 @prefix ecto: <http://purl.obolibrary.org/obo/ECTO_> .
 @prefix ex: <http://example.org/nc-exposome/> .
+@prefix exo: <http://purl.obolibrary.org/obo/ExO_> .
 @prefix ncit: <http://purl.obolibrary.org/obo/NCIT_> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
@@ -10,7 +11,9 @@
 
 <http://example.org/nc-exposome/indicator/kidney_disease_pct> a qb:MeasureProperty ;
     rdfs:label "Chronic Kidney Disease among Adults" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C26767 .
 
 <http://example.org/nc-exposome/obs/annual_checkup_pct/37001/2024> a qb:Observation,
         sosa1:Observation ;
@@ -37814,122 +37817,165 @@
 
 <http://example.org/nc-exposome/indicator/annual_checkup_pct> a qb:MeasureProperty ;
     rdfs:label "Annual Checkup among Adults" ;
-    schema1:unitText "%" .
+    ex:exposureClass ecto:0000098 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C17481 .
 
 <http://example.org/nc-exposome/indicator/arthritis_pct> a qb:MeasureProperty ;
     rdfs:label "Arthritis among Adults" ;
+    ex:exposureClass exo:0000002 ;
     schema1:unitText "%" ;
     rdfs:subClassOf ncit:C26882 .
 
 <http://example.org/nc-exposome/indicator/asthma_pct> a qb:MeasureProperty ;
     rdfs:label "Current Asthma among Adults" ;
+    ex:exposureClass exo:0000113 ;
     schema1:unitText "%" ;
     rdfs:subClassOf ncit:C28397 .
 
 <http://example.org/nc-exposome/indicator/binge_drinking_pct> a qb:MeasureProperty ;
     rdfs:label "Binge Drinking among Adults" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000086 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C154476 .
 
 <http://example.org/nc-exposome/indicator/cancer_pct> a qb:MeasureProperty ;
     rdfs:label "Cancer (excl. skin) among Adults" ;
+    ex:exposureClass exo:0000002 ;
     schema1:unitText "%" ;
     rdfs:subClassOf ncit:C9305 .
 
 <http://example.org/nc-exposome/indicator/cholesterol_screen_pct> a qb:MeasureProperty ;
     rdfs:label "Cholesterol Screening among Adults" ;
-    schema1:unitText "%" .
+    ex:exposureClass ecto:0000098 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C17481 .
 
 <http://example.org/nc-exposome/indicator/cognitive_disability_pct> a qb:MeasureProperty ;
     rdfs:label "Cognitive Disability among Adults" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C26725 .
 
 <http://example.org/nc-exposome/indicator/colorectal_screen_pct> a qb:MeasureProperty ;
     rdfs:label "Colorectal Cancer Screening (ages 45-75)" ;
-    schema1:unitText "%" .
+    ex:exposureClass ecto:0000098 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C17481 .
 
 <http://example.org/nc-exposome/indicator/copd_pct> a qb:MeasureProperty ;
     rdfs:label "COPD among Adults" ;
+    ex:exposureClass exo:0000113 ;
     schema1:unitText "%" ;
     rdfs:subClassOf ncit:C3199 .
 
 <http://example.org/nc-exposome/indicator/coronary_heart_disease_pct> a qb:MeasureProperty ;
     rdfs:label "Coronary Heart Disease among Adults" ;
+    ex:exposureClass exo:0000002 ;
     schema1:unitText "%" ;
     rdfs:subClassOf ncit:C26732 .
 
 <http://example.org/nc-exposome/indicator/current_smoking_pct> a qb:MeasureProperty ;
     rdfs:label "Current Smoking among Adults" ;
+    ex:exposureClass exo:0000087 ;
     schema1:unitText "%" ;
-    rdfs:subClassOf ecto:0000460 .
+    rdfs:subClassOf ncit:C68817 .
 
 <http://example.org/nc-exposome/indicator/dental_visit_pct> a qb:MeasureProperty ;
     rdfs:label "Dental Visit in Past Year" ;
-    schema1:unitText "%" .
+    ex:exposureClass ecto:0000098 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C17481 .
 
 <http://example.org/nc-exposome/indicator/depression_pct> a qb:MeasureProperty ;
     rdfs:label "Depression among Adults" ;
+    ex:exposureClass exo:0000089 ;
     schema1:unitText "%" ;
     rdfs:subClassOf ncit:C2981 .
 
 <http://example.org/nc-exposome/indicator/diabetes_pct> a qb:MeasureProperty ;
     rdfs:label "Diabetes among Adults" ;
+    ex:exposureClass exo:0000083 ;
     schema1:unitText "%" ;
     rdfs:subClassOf ncit:C2985 .
 
 <http://example.org/nc-exposome/indicator/hearing_disability_pct> a qb:MeasureProperty ;
     rdfs:label "Hearing Disability among Adults" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C26696 .
 
 <http://example.org/nc-exposome/indicator/high_blood_pressure_pct> a qb:MeasureProperty ;
     rdfs:label "High Blood Pressure among Adults" ;
+    ex:exposureClass exo:0000002 ;
     schema1:unitText "%" ;
     rdfs:subClassOf ncit:C3117 .
 
 <http://example.org/nc-exposome/indicator/high_cholesterol_pct> a qb:MeasureProperty ;
     rdfs:label "High Cholesterol among Adults (screened)" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000083 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C34707 .
 
 <http://example.org/nc-exposome/indicator/mammography_pct> a qb:MeasureProperty ;
     rdfs:label "Mammography Use among Women 50-74" ;
-    schema1:unitText "%" .
+    ex:exposureClass ecto:0000098 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C17481 .
 
 <http://example.org/nc-exposome/indicator/mobility_disability_pct> a qb:MeasureProperty ;
     rdfs:label "Mobility Disability among Adults" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C26714 .
 
 <http://example.org/nc-exposome/indicator/no_health_insurance_pct> a qb:MeasureProperty ;
     rdfs:label "No Health Insurance among Adults 18-64" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000089 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ecto:0000098 .
 
 <http://example.org/nc-exposome/indicator/obesity_pct> a qb:MeasureProperty ;
     rdfs:label "Obesity among Adults" ;
+    ex:exposureClass exo:0000083 ;
     schema1:unitText "%" ;
     rdfs:subClassOf ncit:C3283 .
 
 <http://example.org/nc-exposome/indicator/physical_inactivity_pct> a qb:MeasureProperty ;
     rdfs:label "No Leisure-Time Physical Activity" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000085 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C68620 .
 
 <http://example.org/nc-exposome/indicator/selfcare_disability_pct> a qb:MeasureProperty ;
     rdfs:label "Self-Care Disability among Adults" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C21007 .
 
 <http://example.org/nc-exposome/indicator/short_sleep_pct> a qb:MeasureProperty ;
     rdfs:label "Short Sleep Duration (<7 hrs)" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000084 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C60540 .
 
 <http://example.org/nc-exposome/indicator/stroke_pct> a qb:MeasureProperty ;
     rdfs:label "Stroke among Adults" ;
+    ex:exposureClass exo:0000002 ;
     schema1:unitText "%" ;
     rdfs:subClassOf ncit:C3390 .
 
 <http://example.org/nc-exposome/indicator/teeth_lost_pct> a qb:MeasureProperty ;
     rdfs:label "All Teeth Lost among Adults 65+" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000088 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C26786 .
 
 <http://example.org/nc-exposome/indicator/vision_disability_pct> a qb:MeasureProperty ;
     rdfs:label "Vision Disability among Adults" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C26711 .
 
 <http://example.org/nc-exposome/dataset/CDC_PLACES_2024> a prov:Entity ;
     schema1:name "CDC PLACES: Local Data for Better Health, County Data 2024" ;

@@ -1,5 +1,7 @@
 @prefix ecto: <http://purl.obolibrary.org/obo/ECTO_> .
+@prefix envo: <http://purl.obolibrary.org/obo/ENVO_> .
 @prefix ex: <http://example.org/nc-exposome/> .
+@prefix exo: <http://purl.obolibrary.org/obo/ExO_> .
 @prefix ncit: <http://purl.obolibrary.org/obo/NCIT_> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
@@ -50312,156 +50314,225 @@
 
 <http://example.org/nc-exposome/indicator/infant_mortality_rate> a qb:MeasureProperty ;
     rdfs:label "Infant Mortality Rate" ;
-    schema1:unitText "per 1k births" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "per 1k births" ;
+    rdfs:subClassOf ncit:C26747 .
 
 <http://example.org/nc-exposome/indicator/homicide_rate> a qb:MeasureProperty ;
     rdfs:label "Homicide Rate" ;
-    schema1:unitText "per 100k" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "per 100k" ;
+    rdfs:subClassOf ncit:C25251 .
 
 <http://example.org/nc-exposome/indicator/child_mortality_rate> a qb:MeasureProperty ;
     rdfs:label "Child Mortality Rate" ;
-    schema1:unitText "per 100k" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "per 100k" ;
+    rdfs:subClassOf ncit:C25513 .
 
 <http://example.org/nc-exposome/indicator/suicide_rate> a qb:MeasureProperty ;
     rdfs:label "Suicide Rate (Age-Adjusted)" ;
-    schema1:unitText "per 100k" .
+    ex:exposureClass exo:0000084 ;
+    schema1:unitText "per 100k" ;
+    rdfs:subClassOf ncit:C25280 .
 
 <http://example.org/nc-exposome/indicator/drug_overdose_mortality_rate> a qb:MeasureProperty ;
     rdfs:label "Drug Overdose Mortality Rate" ;
-    schema1:unitText "per 100k" .
+    ex:exposureClass exo:0000087 ;
+    schema1:unitText "per 100k" ;
+    rdfs:subClassOf ncit:C25280 .
 
 <http://example.org/nc-exposome/indicator/firearm_fatality_rate> a qb:MeasureProperty ;
     rdfs:label "Firearm Fatality Rate" ;
-    schema1:unitText "per 100k" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "per 100k" ;
+    rdfs:subClassOf ncit:C25488 .
 
 <http://example.org/nc-exposome/indicator/motor_vehicle_mortality_rate> a qb:MeasureProperty ;
     rdfs:label "Motor Vehicle Mortality Rate" ;
-    schema1:unitText "per 100k" .
+    ex:exposureClass exo:0000090 ;
+    schema1:unitText "per 100k" ;
+    rdfs:subClassOf ncit:C25488 .
 
 <http://example.org/nc-exposome/indicator/hiv_prevalence_rate> a qb:MeasureProperty ;
     rdfs:label "HIV Prevalence Rate" ;
-    schema1:unitText "per 100k" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "per 100k" ;
+    rdfs:subClassOf ncit:C14219 .
 
 <http://example.org/nc-exposome/indicator/primary_care_rate> a qb:MeasureProperty ;
     rdfs:label "Primary Care Physicians Rate" ;
-    schema1:unitText "per 100k" .
+    ex:exposureClass ecto:0000098 ;
+    schema1:unitText "per 100k" ;
+    rdfs:subClassOf ncit:C17480 .
 
 <http://example.org/nc-exposome/indicator/mental_health_provider_rate> a qb:MeasureProperty ;
     rdfs:label "Mental Health Provider Rate" ;
-    schema1:unitText "per 100k" .
+    ex:exposureClass ecto:0000098 ;
+    schema1:unitText "per 100k" ;
+    rdfs:subClassOf ncit:C17480 .
 
 <http://example.org/nc-exposome/indicator/access_exercise_pct> a qb:MeasureProperty ;
     rdfs:label "Access to Exercise Opportunities" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000090 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf envo:01000739 .
 
 <http://example.org/nc-exposome/indicator/adult_smoking_pct> a qb:MeasureProperty ;
     rdfs:label "Adult Smoking" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000087 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C68817 .
 
 <http://example.org/nc-exposome/indicator/chlamydia_rate> a qb:MeasureProperty ;
     rdfs:label "Chlamydia Rate" ;
-    schema1:unitText "per 100k" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "per 100k" ;
+    rdfs:subClassOf ncit:C26926 .
 
 <http://example.org/nc-exposome/indicator/diabetes_prevalence_pct> a qb:MeasureProperty ;
     rdfs:label "Diabetes Prevalence" ;
+    ex:exposureClass exo:0000083 ;
     schema1:unitText "%" ;
     rdfs:subClassOf ncit:C2985 .
 
 <http://example.org/nc-exposome/indicator/excessive_drinking_pct> a qb:MeasureProperty ;
     rdfs:label "Excessive Drinking" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000086 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C154476 .
 
 <http://example.org/nc-exposome/indicator/flu_vaccinations_pct> a qb:MeasureProperty ;
     rdfs:label "Flu Vaccinations" ;
-    schema1:unitText "%" .
+    ex:exposureClass ecto:0000098 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C17481 .
 
 <http://example.org/nc-exposome/indicator/food_environment_index> a qb:MeasureProperty ;
     rdfs:label "Food Environment Index" ;
+    ex:exposureClass exo:0000088 ;
     schema1:unitText "0-10" ;
-    rdfs:subClassOf ecto:0000095 .
+    rdfs:subClassOf ecto:0000088 .
 
 <http://example.org/nc-exposome/indicator/food_insecurity_pct> a qb:MeasureProperty ;
     rdfs:label "Food Insecurity" ;
+    ex:exposureClass exo:0000088 ;
     schema1:unitText "%" ;
-    rdfs:subClassOf ecto:0000095 .
+    rdfs:subClassOf ecto:0000088 .
 
 <http://example.org/nc-exposome/indicator/frequent_mental_distress_pct> a qb:MeasureProperty ;
     rdfs:label "Frequent Mental Distress" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C14215 .
 
 <http://example.org/nc-exposome/indicator/frequent_physical_distress_pct> a qb:MeasureProperty ;
     rdfs:label "Frequent Physical Distress" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C19332 .
 
 <http://example.org/nc-exposome/indicator/income_ratio> a qb:MeasureProperty ;
     rdfs:label "Income Inequality Ratio (80/20)" ;
+    ex:exposureClass exo:0000089 ;
     schema1:unitText "ratio" ;
     rdfs:subClassOf ecto:0000090 .
 
 <http://example.org/nc-exposome/indicator/injury_death_rate> a qb:MeasureProperty ;
     rdfs:label "Injury Death Rate" ;
-    schema1:unitText "per 100k" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "per 100k" ;
+    rdfs:subClassOf ncit:C25488 .
 
 <http://example.org/nc-exposome/indicator/insufficient_sleep_pct> a qb:MeasureProperty ;
     rdfs:label "Insufficient Sleep" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000084 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C60540 .
 
 <http://example.org/nc-exposome/indicator/life_expectancy> a qb:MeasureProperty ;
     rdfs:label "Life Expectancy" ;
-    schema1:unitText "years" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "years" ;
+    rdfs:subClassOf ncit:C25150 .
 
 <http://example.org/nc-exposome/indicator/loneliness_pct> a qb:MeasureProperty ;
     rdfs:label "Feelings of Loneliness" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000089 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ecto:0001105 .
 
 <http://example.org/nc-exposome/indicator/low_birth_weight_pct> a qb:MeasureProperty ;
     rdfs:label "Low Birth Weight" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C26747 .
 
 <http://example.org/nc-exposome/indicator/mammography_pct> a qb:MeasureProperty ;
     rdfs:label "Mammography Screening" ;
-    schema1:unitText "%" .
+    ex:exposureClass ecto:0000098 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C17481 .
 
 <http://example.org/nc-exposome/indicator/obesity_prevalence_pct> a qb:MeasureProperty ;
     rdfs:label "Adult Obesity Prevalence" ;
+    ex:exposureClass exo:0000083 ;
     schema1:unitText "%" ;
     rdfs:subClassOf ncit:C3283 .
 
 <http://example.org/nc-exposome/indicator/physical_inactivity_pct> a qb:MeasureProperty ;
     rdfs:label "Physical Inactivity" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000085 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C68620 .
 
 <http://example.org/nc-exposome/indicator/poor_or_fair_health_pct> a qb:MeasureProperty ;
     rdfs:label "Poor or Fair Health" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ncit:C17047 .
 
 <http://example.org/nc-exposome/indicator/premature_age_adj_mortality> a qb:MeasureProperty ;
     rdfs:label "Premature Age-Adjusted Mortality Rate" ;
-    schema1:unitText "per 100k" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "per 100k" ;
+    rdfs:subClassOf ncit:C25513 .
 
 <http://example.org/nc-exposome/indicator/preventable_hosp_rate> a qb:MeasureProperty ;
     rdfs:label "Preventable Hospitalization Rate" ;
-    schema1:unitText "per 100k Medicare" .
+    ex:exposureClass ecto:0000098 ;
+    schema1:unitText "per 100k Medicare" ;
+    rdfs:subClassOf ncit:C25218 .
 
 <http://example.org/nc-exposome/indicator/severe_housing_pct> a qb:MeasureProperty ;
     rdfs:label "Severe Housing Problems" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000090 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ecto:0001236 .
 
 <http://example.org/nc-exposome/indicator/teen_birth_rate> a qb:MeasureProperty ;
     rdfs:label "Teen Birth Rate" ;
-    schema1:unitText "per 1k females 15-19" .
+    ex:exposureClass exo:0000089 ;
+    schema1:unitText "per 1k females 15-19" ;
+    rdfs:subClassOf ncit:C17600 .
 
 <http://example.org/nc-exposome/indicator/uninsured_adults_pct> a qb:MeasureProperty ;
     rdfs:label "Uninsured Adults" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000089 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ecto:0000098 .
 
 <http://example.org/nc-exposome/indicator/uninsured_children_pct> a qb:MeasureProperty ;
     rdfs:label "Uninsured Children" ;
-    schema1:unitText "%" .
+    ex:exposureClass exo:0000089 ;
+    schema1:unitText "%" ;
+    rdfs:subClassOf ecto:0000098 .
 
 <http://example.org/nc-exposome/indicator/ypll_rate> a qb:MeasureProperty ;
     rdfs:label "Years of Potential Life Lost Rate" ;
-    schema1:unitText "per 100k" .
+    ex:exposureClass exo:0000002 ;
+    schema1:unitText "per 100k" ;
+    rdfs:subClassOf ncit:C25513 .
 
 <http://example.org/nc-exposome/dataset/CHR_2025_NC> a prov:Entity ;
     schema1:name "County Health Rankings 2025 North Carolina" ;

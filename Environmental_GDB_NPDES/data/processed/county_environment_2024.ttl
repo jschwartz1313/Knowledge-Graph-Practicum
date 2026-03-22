@@ -1,4 +1,11 @@
+@prefix ecto: <http://purl.obolibrary.org/obo/ECTO_> .
+@prefix envo: <http://purl.obolibrary.org/obo/ENVO_> .
+@prefix ex: <http://example.org/nc-exposome/> .
+@prefix exo: <http://purl.obolibrary.org/obo/ExO_> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
 @prefix sosa1: <http://www.w3.org/ns/sosa#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -4859,4 +4866,51 @@
     sosa1:hasSimpleResult 1.871498e+03 ;
     sosa1:observedProperty <http://example.org/nc-exposome/indicator/rsei_tox_air> ;
     sosa1:resultTime "2024-12-31"^^xsd:date .
+
+<http://example.org/nc-exposome/indicator/impaired_stream_miles> a qb:MeasureProperty ;
+    rdfs:label "Impaired Stream Miles" ;
+    ex:environmentClass envo:00000891 ;
+    ex:exposureClass exo:0000113 ;
+    schema1:unitText "miles" ;
+    rdfs:subClassOf ecto:0001000 .
+
+<http://example.org/nc-exposome/indicator/npdes_permits_count> a qb:MeasureProperty ;
+    rdfs:label "Active NPDES Permit Count" ;
+    ex:environmentClass envo:00000891 ;
+    ex:exposureClass exo:0000113 ;
+    schema1:unitText "count" ;
+    rdfs:subClassOf ecto:0001000 .
+
+<http://example.org/nc-exposome/indicator/annual_precip_in> a qb:MeasureProperty ;
+    rdfs:label "Annual Precipitation" ;
+    ex:environmentClass envo:01000739 ;
+    schema1:unitText "inches" ;
+    rdfs:subClassOf envo:01001204 .
+
+<http://example.org/nc-exposome/indicator/avg_temp_f> a qb:MeasureProperty ;
+    rdfs:label "Average Annual Temperature" ;
+    ex:environmentClass envo:01000739 ;
+    schema1:unitText "°F" ;
+    rdfs:subClassOf envo:01001203 .
+
+<http://example.org/nc-exposome/indicator/ozone_8hr_avg> a qb:MeasureProperty ;
+    rdfs:label "Ozone 8-Hour Average" ;
+    ex:environmentClass envo:00002005 ;
+    ex:exposureClass exo:0000113 ;
+    schema1:unitText "ppb" ;
+    rdfs:subClassOf ecto:0000461 .
+
+<http://example.org/nc-exposome/indicator/pm25_mean> a qb:MeasureProperty ;
+    rdfs:label "PM2.5 Mean Concentration" ;
+    ex:environmentClass envo:00002005 ;
+    ex:exposureClass exo:0000113 ;
+    schema1:unitText "µg/m³" ;
+    rdfs:subClassOf ecto:0000460 .
+
+<http://example.org/nc-exposome/indicator/rsei_tox_air> a qb:MeasureProperty ;
+    rdfs:label "RSEI Toxic Air Index" ;
+    ex:environmentClass envo:00002005 ;
+    ex:exposureClass exo:0000113 ;
+    schema1:unitText "score" ;
+    rdfs:subClassOf ecto:0001235 .
 

@@ -2,7 +2,7 @@
 #!/usr/bin/env python3
 import pandas as pd
 from pathlib import Path
-from rdflib import Graph, Namespace, Literal, RDF, XSD
+from rdflib import Graph, Namespace, Literal, RDF, RDFS, XSD
 
 
 """
@@ -39,24 +39,92 @@ out = df[cols]
 out.to_csv(PROC / 'county_environment_2024.csv', index=False)
 
 # RDF
-BASE = Namespace('http://example.org/nc-exposome/')
-SOSA = Namespace('http://www.w3.org/ns/sosa#')
-PROV = Namespace('http://www.w3.org/ns/prov#')
-QB = Namespace("http://purl.org/linked-data/cube#")
+BASE  = Namespace('http://example.org/nc-exposome/')
+SOSA  = Namespace('http://www.w3.org/ns/sosa#')
+PROV  = Namespace('http://www.w3.org/ns/prov#')
+QB    = Namespace("http://purl.org/linked-data/cube#")
 SCHEMA = Namespace("http://schema.org/")
+ECTO  = Namespace("http://purl.obolibrary.org/obo/ECTO_")
+EXO   = Namespace("http://purl.obolibrary.org/obo/ExO_")
+ENVO  = Namespace("http://purl.obolibrary.org/obo/ENVO_")
 
-
-g = Graph(); g.bind('ex', BASE); g.bind('sosa', SOSA); g.bind('prov', PROV); g.bind('qb', QB); g.bind('schema', SCHEMA)
+g = Graph()
+g.bind('ex', BASE); g.bind('sosa', SOSA); g.bind('prov', PROV)
+g.bind('qb', QB);  g.bind('schema', SCHEMA)
+g.bind('ecto', ECTO); g.bind('exo', EXO); g.bind('envo', ENVO)
 
 IND = {
-  'pm25_mean': BASE['indicator/pm25_mean'],
-  'ozone_8hr_avg': BASE['indicator/ozone_8hr_avg'],
-  'rsei_tox_air': BASE['indicator/rsei_tox_air'],
-  'impaired_stream_miles': BASE['indicator/impaired_stream_miles'],
-  'npdes_permits_count': BASE['indicator/npdes_permits_count'],
-  'avg_temp_f': BASE['indicator/avg_temp_f'],
-  'annual_precip_in': BASE['indicator/annual_precip_in']
+  'pm25_mean':            BASE['indicator/pm25_mean'],
+  'ozone_8hr_avg':        BASE['indicator/ozone_8hr_avg'],
+  'rsei_tox_air':         BASE['indicator/rsei_tox_air'],
+  'impaired_stream_miles':BASE['indicator/impaired_stream_miles'],
+  'npdes_permits_count':  BASE['indicator/npdes_permits_count'],
+  'avg_temp_f':           BASE['indicator/avg_temp_f'],
+  'annual_precip_in':     BASE['indicator/annual_precip_in'],
 }
+
+# Ontology annotations per indicator:
+#   (label, unit, ontology_class, exposure_class, environment_class)
+#   ontology_class  → rdfs:subClassOf  (ECTO/ENVO condition/measure term)
+#   exposure_class  → ex:exposureClass (ExO exposure category)
+#   environment_class → ex:environmentClass (ENVO environmental context)
+IND_META = {
+  'pm25_mean': (
+    "PM2.5 Mean Concentration", "µg/m³",
+    ECTO["0000460"],   # particulate matter exposure
+    EXO["0000113"],    # air pollution exposure
+    ENVO["00002005"],  # air
+  ),
+  'ozone_8hr_avg': (
+    "Ozone 8-Hour Average", "ppb",
+    ECTO["0000461"],   # ozone exposure
+    EXO["0000113"],
+    ENVO["00002005"],
+  ),
+  'rsei_tox_air': (
+    "RSEI Toxic Air Index", "score",
+    ECTO["0001235"],   # toxic chemical air exposure
+    EXO["0000113"],
+    ENVO["00002005"],
+  ),
+  'impaired_stream_miles': (
+    "Impaired Stream Miles", "miles",
+    ECTO["0001000"],   # water pollution exposure
+    EXO["0000113"],
+    ENVO["00000891"],  # water body
+  ),
+  'npdes_permits_count': (
+    "Active NPDES Permit Count", "count",
+    ECTO["0001000"],
+    EXO["0000113"],
+    ENVO["00000891"],
+  ),
+  'avg_temp_f': (
+    "Average Annual Temperature", "°F",
+    ENVO["01001203"],  # mean annual air temperature
+    None,
+    ENVO["01000739"],  # climate
+  ),
+  'annual_precip_in': (
+    "Annual Precipitation", "inches",
+    ENVO["01001204"],  # annual precipitation
+    None,
+    ENVO["01000739"],
+  ),
+}
+
+# Emit indicator declarations with ontology annotations
+for col, ind_uri in IND.items():
+  label, unit, ont_class, exp_class, env_class = IND_META[col]
+  g.add((ind_uri, RDF.type,        QB.MeasureProperty))
+  g.add((ind_uri, RDFS.label,      Literal(label)))
+  g.add((ind_uri, SCHEMA.unitText, Literal(unit)))
+  if ont_class:
+    g.add((ind_uri, RDFS.subClassOf,         ont_class))
+  if exp_class:
+    g.add((ind_uri, BASE['exposureClass'],   exp_class))
+  if env_class:
+    g.add((ind_uri, BASE['environmentClass'],env_class))
 SRC = {
   'pm25_mean': BASE['dataset/EJScreen_v23'],
   'ozone_8hr_avg': BASE['dataset/EJScreen_v23'],
